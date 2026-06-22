@@ -1,11 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Ueberlagerungsprinzip Schaltung">
-  <style>
-    .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-    .n{fill:#0d47a1}
-    .t{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;fill:#0d2a4a;font-weight:600}
-  </style>
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .n{fill:#0d47a1}
+      .t{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;fill:#0d2a4a;font-weight:600}
+      .flow{fill:none;stroke:#22d3ee;stroke-width:3;stroke-linecap:round;
+            stroke-dasharray:5 21;filter:url(#glow);animation:flow 1.1s linear infinite}
+      .flow2{stroke:#7c5cff;animation-duration:1.4s;animation-direction:reverse}
+      @keyframes flow{to{stroke-dashoffset:-26}}
+      @media (prefers-reduced-motion: reduce){.flow{animation:none;opacity:.5}.spark{display:none}}
+    </style>
+  </defs>
   <!-- main loop -->
   <path class="w" d="M70 90 V210 H350 V90 H70"/>
+  <!-- fließender Strom beider Quellen -->
+  <path class="flow" d="M70 90 V210 H210"/>
+  <path class="flow flow2" d="M350 90 V210 H210"/>
   <!-- source U1 left -->
   <path class="w" d="M58 130 H82 M64 142 H76 M58 154 H82 M66 166 H74"/>
   <text class="t" x="22" y="150">U<tspan baseline-shift="sub" font-size="11">1</tspan></text>

@@ -1,23 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Versorgungsschaltung">
-  <style>
-    .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-    .b{fill:#e3f0fd;stroke:#1565c0;stroke-width:3}
-    .t{font-family:'Segoe UI',Arial,sans-serif;font-size:14px;fill:#0d2a4a;font-weight:600}
-    .s{font-family:'Segoe UI',Arial,sans-serif;font-size:12px;fill:#0d2a4a}
-  </style>
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .b{fill:#e3f0fd;stroke:#1565c0;stroke-width:3}
+      .t{font-family:'Segoe UI',Arial,sans-serif;font-size:14px;fill:#0d2a4a;font-weight:600}
+      .s{font-family:'Segoe UI',Arial,sans-serif;font-size:12px;fill:#0d2a4a}
+      .flow{fill:none;stroke:#22d3ee;stroke-width:3;stroke-linecap:round;
+            stroke-dasharray:5 17;filter:url(#glow);animation:flow 1s linear infinite}
+      .pulse{animation:pulse 2.2s ease-in-out infinite}
+      @keyframes flow{to{stroke-dashoffset:-22}}
+      @keyframes pulse{0%,100%{filter:none}50%{filter:url(#glow)}}
+      @media (prefers-reduced-motion: reduce){.flow{animation:none;opacity:.5}.pulse{animation:none}}
+    </style>
+  </defs>
   <!-- board -->
-  <rect class="b" x="120" y="70" width="180" height="160" rx="12"/>
+  <rect class="b pulse" x="120" y="70" width="180" height="160" rx="12"/>
   <text class="t" x="150" y="158" font-size="15">Versorgung</text>
   <!-- USB-C left -->
   <rect class="b" x="70" y="95" width="50" height="26" rx="13"/>
   <text class="s" x="74" y="112">USB-C</text>
   <path class="w" d="M120 108 H140"/>
+  <path class="flow" d="M120 108 H140"/>
   <!-- BNC IN1/IN2 left -->
   <circle class="b" cx="86" cy="160" r="14"/><circle cx="86" cy="160" r="4" fill="#1565c0"/>
   <text class="s" x="62" y="190">BNC IN1</text>
   <circle class="b" cx="86" cy="210" r="14"/><circle cx="86" cy="210" r="4" fill="#1565c0"/>
   <text class="s" x="62" y="240">BNC IN2</text>
   <path class="w" d="M100 160 H120 M100 210 H120"/>
+  <path class="flow" d="M100 160 H120"/>
+  <path class="flow" d="M100 210 H120"/>
   <!-- terminals right -->
   <g>
     <rect class="b" x="300" y="90" width="16" height="16"/><text class="s" x="322" y="103">IN3+</text>

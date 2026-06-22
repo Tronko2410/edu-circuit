@@ -1,12 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Spannungsteiler Schaltung">
-  <style>
-    .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-    .n{fill:#0d47a1}
-    .t{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;fill:#0d2a4a;font-weight:600}
-  </style>
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .n{fill:#0d47a1}
+      .t{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;fill:#0d2a4a;font-weight:600}
+      .flow{fill:none;stroke:#22d3ee;stroke-width:3;stroke-linecap:round;
+            stroke-dasharray:5 21;filter:url(#glow);animation:flow 1.1s linear infinite}
+      @keyframes flow{to{stroke-dashoffset:-26}}
+      @media (prefers-reduced-motion: reduce){.flow{animation:none;opacity:.5}.spark{display:none}}
+    </style>
+  </defs>
   <!-- outer loop -->
   <path class="w" d="M70 90 V210 H300 V90"/>
   <path class="w" d="M70 90 V60 H300 V90"/>
+  <!-- fließender Strom über die Leiterschleife -->
+  <path class="flow" d="M70 60 H300 V210 H70 Z"/>
   <!-- source on left -->
   <path class="w" d="M58 130 H82 M64 142 H76 M58 154 H82 M66 166 H74"/>
   <text class="t" x="24" y="150">U<tspan baseline-shift="sub" font-size="11">q</tspan></text>
@@ -21,5 +33,9 @@
   <!-- R2 (lower right) -->
   <rect class="w" x="289" y="160" width="22" height="44" rx="3" fill="#e3f0fd"/>
   <text class="t" x="320" y="188">R<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <!-- wanderndes Elektron -->
+  <circle class="spark" r="3.6" fill="#22d3ee" filter="url(#glow)">
+    <animateMotion dur="3.2s" repeatCount="indefinite" path="M70 60 H300 V210 H70 Z"/>
+  </circle>
   <text class="t" x="130" y="34" font-size="17" font-weight="700">Spannungsteiler</text>
 </svg>
