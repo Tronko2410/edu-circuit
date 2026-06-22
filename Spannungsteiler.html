@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spannungsteiler – EDU circuit</title>
+  <meta name="description" content="Spannungsteiler: Definition, Berechnung mit zwei und mehreren Widerständen, belasteter Spannungsteiler, interaktive Rechner, Übungsschaltung und praktische Anwendung.">
+  <link rel="icon" type="image/svg+xml" href="Bilder/EDUcircuit_4c_V2.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="EDU circuit Startseite">
+        <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+      </a>
+      <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Übersicht</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Übersicht</a> / Spannungsteiler</div>
+      <h1>Spannungsteiler</h1>
+      <p class="lead">Eine einfache Schaltung, mit der eine Eingangsspannung in kleinere, proportionale Spannungen aufgeteilt wird.</p>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container article">
+
+      <h2>Was ist ein Spannungsteiler?</h2>
+      <p>Ein Spannungsteiler ist eine einfache Schaltung, mit der eine Eingangsspannung in kleinere, proportionale Spannungen aufgeteilt wird. Dazu werden Widerstände in Reihe geschaltet. Die Eingangsspannung verteilt sich proportional zu den einzelnen Widerständen auf die Bauteile.</p>
+
+      <figure class="figure">
+        <img src="Bilder/Neu/Spannungsteiler.svg" alt="Übungsschaltung: Spannungsteiler mit Potentiometern und Schalter">
+        <figcaption>Übungsschaltung: Spannungsteiler mit Potentiometern und Schalter</figcaption>
+      </figure>
+
+      <h2>Berechnung (zwei Widerstände)</h2>
+      <p>Bei zwei in Reihe geschalteten Widerständen R₁ und R₂ ergeben sich die Teilspannungen aus der Quellenspannung U<sub>q</sub>:</p>
+      <div class="formula">U₁ = U<sub>q</sub> · <span class="frac"><span class="num">R₁</span><span class="den">R₁ + R₂</span></span></div>
+      <div class="formula">U₂ = U<sub>q</sub> · <span class="frac"><span class="num">R₂</span><span class="den">R₁ + R₂</span></span></div>
+
+      <h2>Erweiterte Formel (mehrere Widerstände)</h2>
+      <p>Bei mehreren in Reihe geschalteten Widerständen ist der Gesamtwiderstand die Summe aller Einzelwiderstände:</p>
+      <div class="formula">R<sub>ges</sub> = R₁ + R₂ + … + R<sub>n</sub></div>
+      <p>Die Spannung am n-ten Widerstand beträgt:</p>
+      <div class="formula">U<sub>n</sub> = U<sub>q</sub> · <span class="frac"><span class="num">R<sub>n</sub></span><span class="den">R<sub>ges</sub></span></span></div>
+
+      <h2>Belasteter Spannungsteiler</h2>
+      <p>Wird parallel zu R₂ ein Lastwiderstand R₃ angeschlossen, verändert sich die Ausgangsspannung. Maßgeblich ist der effektive Widerstand aus der Parallelschaltung von R₂ und R₃:</p>
+      <div class="formula">R<sub>eff</sub> = <span class="frac"><span class="num">R₂ · R₃</span><span class="den">R₂ + R₃</span></span></div>
+      <div class="formula">U₂ = U<sub>q</sub> · <span class="frac"><span class="num">R<sub>eff</sub></span><span class="den">R₁ + R<sub>eff</sub></span></span></div>
+
+      <!-- RECHNER: unbelastet -->
+      <div class="calc">
+        <h3>Rechner: unbelasteter Spannungsteiler</h3>
+        <div class="calc-grid">
+          <div class="field"><label for="sp_uq">U<sub>q</sub> (V)</label><input id="sp_uq" type="number" value="12" step="any"></div>
+          <div class="field"><label for="sp_r1">R₁ (Ω)</label><input id="sp_r1" type="number" value="1000" step="any"></div>
+          <div class="field"><label for="sp_r2">R₂ (Ω)</label><input id="sp_r2" type="number" value="2000" step="any"></div>
+        </div>
+        <button class="btn btn--primary" id="calcSpU" type="button">Berechnen</button>
+        <div class="results">
+          <div class="result"><div class="k">U₁</div><div class="v" id="sp_u1">–</div></div>
+          <div class="result"><div class="k">U₂</div><div class="v" id="sp_u2">–</div></div>
+          <div class="result"><div class="k">R<sub>ges</sub></div><div class="v" id="sp_rges">–</div></div>
+        </div>
+      </div>
+
+      <!-- RECHNER: belastet -->
+      <div class="calc">
+        <h3>Rechner: belasteter Spannungsteiler</h3>
+        <div class="calc-grid">
+          <div class="field"><label for="spl_uq">U<sub>q</sub> (V)</label><input id="spl_uq" type="number" value="12" step="any"></div>
+          <div class="field"><label for="spl_r1">R₁ (Ω)</label><input id="spl_r1" type="number" value="1000" step="any"></div>
+          <div class="field"><label for="spl_r2">R₂ (Ω)</label><input id="spl_r2" type="number" value="2000" step="any"></div>
+          <div class="field"><label for="spl_r3">R₃ (Ω)</label><input id="spl_r3" type="number" value="470" step="any"></div>
+        </div>
+        <button class="btn btn--primary" id="calcSpL" type="button">Berechnen</button>
+        <div class="results">
+          <div class="result"><div class="k">R<sub>eff</sub></div><div class="v" id="spl_reff">–</div></div>
+          <div class="result"><div class="k">U₂ (belastet)</div><div class="v" id="spl_u2">–</div></div>
+          <div class="result"><div class="k">Vergleich: U₂ unbelastet</div><div class="v" id="spl_u2unb">–</div></div>
+        </div>
+      </div>
+
+      <h2>Schaltungsmodul</h2>
+      <h3>Verwendung der Übungsschaltung</h3>
+      <p>Auf der Übungsschaltung lassen sich die Widerstände R₁ und R₂ über Potentiometer einstellen. Mit dem Multimeter werden die Teilspannungen gemessen. Über den Schalter kann der Lastwiderstand R₃ zugeschaltet werden, um den Einfluss einer Belastung auf die Spannungsteilung zu beobachten.</p>
+
+      <h3>Übungen</h3>
+      <ol>
+        <li>Teilspannungen U₁ und U₂ im unbelasteten Zustand mit dem Multimeter messen.</li>
+        <li>Die Potentiometer verstellen und beobachten, wie sich das Teilungsverhältnis verändert.</li>
+        <li>Lastwiderstand R₃ zuschalten und die Veränderung der Ausgangsspannung U₂ messen und mit dem unbelasteten Fall vergleichen.</li>
+      </ol>
+
+      <h3>Bauteilwerte</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Bauteil</th><th>Wert</th></tr></thead>
+          <tbody>
+            <tr><td>R₁</td><td>470 Ω – 10,47 kΩ (einstellbar)</td></tr>
+            <tr><td>R₂</td><td>470 Ω – 10,47 kΩ (einstellbar)</td></tr>
+            <tr><td>R₃ (Last)</td><td>470 Ω</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Praktische Anwendung</h3>
+      <p>Spannungsteiler werden unter anderem zur Einstellung von Arbeitspunkten in aktiven Schaltungen sowie für Messanwendungen (z. B. die Messung bzw. Anpassung von Spannungen) eingesetzt.</p>
+
+      <p style="margin-top:2rem"><a class="btn btn--ghost" href="index.html">← Zurück zur Übersicht</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+          <p>Interaktive Lernmodule für elektronische Schaltungen – Theorie praktisch erkunden und verstehen.</p>
+        </div>
+        <div>
+          <h4>Über EDU circuit</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Übersicht</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Schaltungen</h4>
+          <ul class="footer-links">
+            <li><a href="Spannungsteiler.html">Spannungsteiler</a></li>
+            <li><a href="Stromteiler.html">Stromteiler</a></li>
+            <li><a href="Ueberlagerungsprinzip.html">Überlagerungsprinzip</a></li>
+            <li><a href="Versorgung.html">Versorgung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@edu-circuit.at">office@edu-circuit.at</a></li>
+            <li><a href="tel:+4368120387977">+43 681 2038 7977</a></li>
+            <li><a href="https://www.instagram.com/edu_circuit.at" target="_blank" rel="noopener">📸 Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2025</span> EDUcircuit. Alle Rechte vorbehalten.</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

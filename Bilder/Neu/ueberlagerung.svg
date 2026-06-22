@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Ueberlagerungsprinzip Schaltung">
+  <style>
+    .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:#0d47a1}
+    .t{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;fill:#0d2a4a;font-weight:600}
+  </style>
+  <!-- main loop -->
+  <path class="w" d="M70 90 V210 H350 V90 H70"/>
+  <!-- source U1 left -->
+  <path class="w" d="M58 130 H82 M64 142 H76 M58 154 H82 M66 166 H74"/>
+  <text class="t" x="22" y="150">U<tspan baseline-shift="sub" font-size="11">1</tspan></text>
+  <!-- source U2 right -->
+  <path class="w" d="M338 130 H362 M344 142 H356 M338 154 H362 M346 166 H354"/>
+  <text class="t" x="372" y="150">U<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <!-- middle resistor branch (load) -->
+  <path class="w" d="M210 90 V120 M210 180 V210"/>
+  <rect class="w" x="199" y="120" width="22" height="60" rx="3" fill="#e3f0fd"/>
+  <text class="t" x="230" y="155">R<tspan baseline-shift="sub" font-size="11">L</tspan></text>
+  <!-- series resistors -->
+  <rect class="w" x="120" y="79" width="44" height="22" rx="3" fill="#e3f0fd"/>
+  <text class="t" x="130" y="72">R<tspan baseline-shift="sub" font-size="11">1</tspan></text>
+  <rect class="w" x="256" y="79" width="44" height="22" rx="3" fill="#e3f0fd"/>
+  <text class="t" x="266" y="72">R<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <circle class="n" cx="210" cy="90" r="4.5"/>
+  <text class="t" x="100" y="34" font-size="17" font-weight="700">Überlagerungsprinzip</text>
+</svg>

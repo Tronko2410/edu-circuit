@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stromteiler – EDU circuit</title>
+  <meta name="description" content="Stromteiler: Definition, Berechnung mit zwei und mehreren parallelen Widerständen, interaktiver Rechner, Übungsschaltung, Bauteilwerte und praktische Anwendung.">
+  <link rel="icon" type="image/svg+xml" href="Bilder/EDUcircuit_4c_V2.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="EDU circuit Startseite">
+        <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+      </a>
+      <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Übersicht</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Übersicht</a> / Stromteiler</div>
+      <h1>Stromteiler</h1>
+      <p class="lead">Eine Schaltung, mit der ein Gesamtstrom in parallelen Zweigen aufgeteilt wird.</p>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container article">
+
+      <h2>Was ist ein Stromteiler?</h2>
+      <p>Ein Stromteiler ist eine Schaltung, mit der ein Gesamtstrom in parallelen Zweigen aufgeteilt wird. Die Stromaufteilung erfolgt umgekehrt proportional zum jeweiligen Zweigwiderstand: durch den kleineren Widerstand fließt der größere Strom. Für einen Stromteiler werden mindestens zwei parallele Widerstände benötigt.</p>
+
+      <figure class="figure">
+        <img src="Bilder/Neu/Stromteiler.svg" alt="Übungsschaltung: Stromteiler mit parallelen Widerständen">
+        <figcaption>Übungsschaltung: Stromteiler mit parallelen Widerständen</figcaption>
+      </figure>
+
+      <h2>Berechnung</h2>
+      <h3>Stromteiler mit zwei parallelen Widerständen</h3>
+      <p>Bei zwei parallelen Widerständen R₁ und R₂ teilt sich der Gesamtstrom I<sub>q</sub> wie folgt auf:</p>
+      <div class="formula">I₁ = I<sub>q</sub> · <span class="frac"><span class="num">R₂</span><span class="den">R₁ + R₂</span></span></div>
+      <div class="formula">I₂ = I<sub>q</sub> · <span class="frac"><span class="num">R₁</span><span class="den">R₁ + R₂</span></span></div>
+
+      <h3>Erweiterte Formel (mehrere parallele Widerstände)</h3>
+      <p>Bei mehreren parallelen Widerständen ergibt sich der Strom durch den n-ten Zweig aus dem Verhältnis seines Leitwerts zur Summe aller Leitwerte:</p>
+      <div class="formula">I<sub>n</sub> = I<sub>q</sub> · <span class="frac"><span class="num">1 / R<sub>n</sub></span><span class="den">Σ (1 / R<sub>i</sub>)</span></span> &nbsp;&nbsp;(i = 1 … n)</div>
+
+      <!-- RECHNER -->
+      <div class="calc">
+        <h3>Rechner: Stromteiler (zwei Widerstände)</h3>
+        <div class="calc-grid">
+          <div class="field"><label for="st_iq">I<sub>q</sub> (A)</label><input id="st_iq" type="number" value="0.1" step="any"></div>
+          <div class="field"><label for="st_r1">R₁ (Ω)</label><input id="st_r1" type="number" value="470" step="any"></div>
+          <div class="field"><label for="st_r2">R₂ (Ω)</label><input id="st_r2" type="number" value="1000" step="any"></div>
+        </div>
+        <button class="btn btn--primary" id="calcSt" type="button">Berechnen</button>
+        <div class="results">
+          <div class="result"><div class="k">I₁ (durch R₁)</div><div class="v" id="st_i1">–</div></div>
+          <div class="result"><div class="k">I₂ (durch R₂)</div><div class="v" id="st_i2">–</div></div>
+        </div>
+      </div>
+
+      <h2>Schaltungsmodul</h2>
+      <h3>Verwendung der Übungsschaltung</h3>
+      <p>Die Übungsschaltung wird mit 5 V versorgt (VCC, +PWR). Die weißen Messpunkte unterhalb von R₁ und R₂ müssen dazu elektrisch verbunden werden. Für die Strommessung wird ein Amperemeter benötigt.</p>
+
+      <h3>Übungen</h3>
+      <ol>
+        <li>Einfache Strommessung mit dem Amperemeter im Zweig von R₁.</li>
+        <li>Den Wert von R₁ mithilfe des Ohmschen Gesetzes (5 V) berechnen.</li>
+        <li>Beide Zweigströme messen und daraus die Widerstandswerte bestimmen.</li>
+      </ol>
+
+      <h3>Bauteilwerte</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Bauteil</th><th>Wert</th></tr></thead>
+          <tbody>
+            <tr><td>R₁</td><td>470 Ω – 10,47 kΩ (einstellbar)</td></tr>
+            <tr><td>R₂</td><td>470 Ω – 10,47 kΩ (einstellbar)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Praktische Anwendung</h3>
+      <ul>
+        <li>Stromversorgung von ICs</li>
+        <li>Pegelanpassung von Audiosignalen</li>
+      </ul>
+
+      <p style="margin-top:2rem"><a class="btn btn--ghost" href="index.html">← Zurück zur Übersicht</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+          <p>Interaktive Lernmodule für elektronische Schaltungen – Theorie praktisch erkunden und verstehen.</p>
+        </div>
+        <div>
+          <h4>Über EDU circuit</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Übersicht</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Schaltungen</h4>
+          <ul class="footer-links">
+            <li><a href="Spannungsteiler.html">Spannungsteiler</a></li>
+            <li><a href="Stromteiler.html">Stromteiler</a></li>
+            <li><a href="Ueberlagerungsprinzip.html">Überlagerungsprinzip</a></li>
+            <li><a href="Versorgung.html">Versorgung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@edu-circuit.at">office@edu-circuit.at</a></li>
+            <li><a href="tel:+4368120387977">+43 681 2038 7977</a></li>
+            <li><a href="https://www.instagram.com/edu_circuit.at" target="_blank" rel="noopener">📸 Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2025</span> EDUcircuit. Alle Rechte vorbehalten.</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

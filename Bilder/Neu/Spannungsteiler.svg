@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Spannungsteiler Schaltung">
+  <style>
+    .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:#0d47a1}
+    .t{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;fill:#0d2a4a;font-weight:600}
+  </style>
+  <!-- outer loop -->
+  <path class="w" d="M70 90 V210 H300 V90"/>
+  <path class="w" d="M70 90 V60 H300 V90"/>
+  <!-- source on left -->
+  <path class="w" d="M58 130 H82 M64 142 H76 M58 154 H82 M66 166 H74"/>
+  <text class="t" x="24" y="150">U<tspan baseline-shift="sub" font-size="11">q</tspan></text>
+  <!-- R1 (upper right) -->
+  <rect class="w" x="289" y="95" width="22" height="44" rx="3" fill="#e3f0fd"/>
+  <text class="t" x="320" y="122">R<tspan baseline-shift="sub" font-size="11">1</tspan></text>
+  <!-- output tap node -->
+  <circle class="n" cx="300" cy="150" r="4.5"/>
+  <path class="w" d="M300 150 H360"/>
+  <circle class="n" cx="360" cy="150" r="4.5"/>
+  <text class="t" x="330" y="142">U<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <!-- R2 (lower right) -->
+  <rect class="w" x="289" y="160" width="22" height="44" rx="3" fill="#e3f0fd"/>
+  <text class="t" x="320" y="188">R<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <text class="t" x="130" y="34" font-size="17" font-weight="700">Spannungsteiler</text>
+</svg>

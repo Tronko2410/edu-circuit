@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Versorgung – EDU circuit</title>
+  <meta name="description" content="Versorgungsschaltung: Spannungsversorgung über USB-C, BNC-Eingänge für Funktionsgeneratoren, Signaleingänge, Ohmsches Gesetz & Leistung mit Rechner und PIN-Belegung.">
+  <link rel="icon" type="image/svg+xml" href="Bilder/EDUcircuit_4c_V2.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="EDU circuit Startseite">
+        <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+      </a>
+      <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Übersicht</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Übersicht</a> / Versorgung</div>
+      <h1>Versorgungsschaltung</h1>
+      <p class="lead">Stellt definierte positive und negative Spannungen für die angeschlossenen Übungsschaltungen bereit und ermöglicht das Einspeisen von Signalen.</p>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container article">
+
+      <p>Die Versorgungsschaltung stellt den angeschlossenen Übungsschaltungen definierte positive und negative Spannungen bereit und erlaubt das Einspeisen von Signalen für die Übungen.</p>
+
+      <figure class="figure">
+        <img src="Bilder/Neu/Versorgung.svg" alt="Versorgungsschaltung – Technische Darstellung">
+        <figcaption>Versorgungsschaltung – Technische Darstellung</figcaption>
+      </figure>
+
+      <h2>Versorgungsoptionen</h2>
+
+      <h3>Spannungsversorgung über USB-C</h3>
+      <ul>
+        <li>Die Anschlüsse <strong>+PWR</strong> und <strong>-PWR</strong> benötigen separate Powerbanks oder USB-PD-fähige Netzteile.</li>
+        <li>Mindestanforderung: Unterstützung von 12 V.</li>
+        <li>Bei 5-V-Betrieb ergibt sich eine Ausgangsspannung von etwa 4,5 – 4,8 V.</li>
+        <li>Spannungsauswahl: 5 V oder 10 V über einen Schiebeschalter.</li>
+        <li>Hinweis: Denselben Spannungswert verwenden, um ein Offset-Massepotential zu vermeiden.</li>
+        <li>Die negative Versorgung (-PWR) ist optional und nur für Schaltungen erforderlich, die sie benötigen.</li>
+      </ul>
+
+      <h3>BNC-Eingänge für Funktionsgenerator</h3>
+      <ul>
+        <li>Anschlüsse: <strong>IN1</strong> und <strong>IN2</strong>.</li>
+        <li>Zweck: Signaleinspeisung über BNC-Koaxialkabel.</li>
+      </ul>
+
+      <h3>Klemmen für weitere Signaleingänge</h3>
+      <ul>
+        <li>Anschlüsse: <strong>IN3+</strong>, <strong>IN3-</strong>, <strong>IN4+</strong>, <strong>IN4-</strong>.</li>
+        <li>IN3- und IN4- müssen mit der Masse der Signalquelle verbunden werden.</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <strong>Wichtiger Hinweis</strong>
+        Bei Verwendung von Labornetzgeräten die Strombegrenzung auf maximal 200 mA einstellen.
+      </div>
+
+      <h2>Berechnung: Ohmsches Gesetz &amp; Leistung</h2>
+      <p>Aus der angelegten Spannung U und einer ohmschen Last R lassen sich Strom und Leistung berechnen:</p>
+      <div class="formula">I = <span class="frac"><span class="num">U</span><span class="den">R</span></span> &nbsp;&nbsp;&nbsp; P = U · I</div>
+
+      <div class="calc">
+        <h3>Rechner: Strom &amp; Leistung</h3>
+        <div class="calc-grid">
+          <div class="field"><label for="ver_u">Spannung U (V)</label><input id="ver_u" type="number" value="5" step="any"></div>
+          <div class="field"><label for="ver_r">Ohmsche Last R (Ω)</label><input id="ver_r" type="number" value="470" step="any"></div>
+        </div>
+        <button class="btn btn--primary" id="calcVer" type="button">Berechnen</button>
+        <div class="results">
+          <div class="result"><div class="k">Strom I</div><div class="v" id="ver_i">–</div></div>
+          <div class="result"><div class="k">Leistung P</div><div class="v" id="ver_p">–</div></div>
+        </div>
+      </div>
+
+      <h2>Technische Hinweise</h2>
+      <h3>PIN-Belegung</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>PIN</th><th>Ausgangssignal</th><th>Gespeist von</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>GND</td><td>PWR-</td></tr>
+            <tr><td>2</td><td>VCC-</td><td>—</td></tr>
+            <tr><td>3</td><td>OUT4-</td><td>IN4-</td></tr>
+            <tr><td>4</td><td>OUT4+</td><td>IN4+</td></tr>
+            <tr><td>5</td><td>OUT4-</td><td>IN3-</td></tr>
+            <tr><td>6</td><td>OUT4+</td><td>IN3+</td></tr>
+            <tr><td>7</td><td>OUT4-</td><td>IN2</td></tr>
+            <tr><td>8</td><td>OUT4+</td><td>—</td></tr>
+            <tr><td>9</td><td>OUT4-</td><td>IN1</td></tr>
+            <tr><td>10</td><td>OUT4+</td><td>—</td></tr>
+            <tr><td>11</td><td>VCC</td><td>PWR+</td></tr>
+            <tr><td>12</td><td>GND</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:2rem"><a class="btn btn--ghost" href="index.html">← Zurück zur Übersicht</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+          <p>Interaktive Lernmodule für elektronische Schaltungen – Theorie praktisch erkunden und verstehen.</p>
+        </div>
+        <div>
+          <h4>Über EDU circuit</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Übersicht</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Schaltungen</h4>
+          <ul class="footer-links">
+            <li><a href="Spannungsteiler.html">Spannungsteiler</a></li>
+            <li><a href="Stromteiler.html">Stromteiler</a></li>
+            <li><a href="Ueberlagerungsprinzip.html">Überlagerungsprinzip</a></li>
+            <li><a href="Versorgung.html">Versorgung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@edu-circuit.at">office@edu-circuit.at</a></li>
+            <li><a href="tel:+4368120387977">+43 681 2038 7977</a></li>
+            <li><a href="https://www.instagram.com/edu_circuit.at" target="_blank" rel="noopener">📸 Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2025</span> EDUcircuit. Alle Rechte vorbehalten.</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

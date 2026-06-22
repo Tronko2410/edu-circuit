@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Überlagerungsprinzip – EDU circuit</title>
+  <meta name="description" content="Überlagerungsprinzip (Superposition): Verfahren für lineare Schaltungen mit mehreren Quellen, Vorgehensweise, Beispielrechnung, interaktiver Rechner und Bauteilwerte.">
+  <link rel="icon" type="image/svg+xml" href="Bilder/EDUcircuit_4c_V2.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="EDU circuit Startseite">
+        <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+      </a>
+      <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Übersicht</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Übersicht</a> / Überlagerungsprinzip</div>
+      <h1>Überlagerungsprinzip</h1>
+      <p class="lead">Ein Verfahren in der Elektrotechnik für lineare Schaltungen mit mehreren unabhängigen Quellen.</p>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container article">
+
+      <h2>Was ist das Überlagerungsprinzip?</h2>
+      <p>Das Überlagerungsprinzip ist ein Verfahren in der Elektrotechnik, das in linearen Schaltungen mit mehreren unabhängigen Quellen angewendet wird. Die Wirkung jeder Quelle wird einzeln betrachtet und anschließend zum Gesamtergebnis überlagert (addiert).</p>
+
+      <figure class="figure">
+        <img src="Bilder/Neu/ueberlagerung.svg" alt="Übungsschaltung: Überlagerungsprinzip mit zwei Quellen">
+        <figcaption>Übungsschaltung: Überlagerungsprinzip mit zwei Quellen</figcaption>
+      </figure>
+
+      <h2>Berechnung</h2>
+      <h3>Vorgehensweise bei mehreren Quellen</h3>
+      <ul>
+        <li><strong>Einzelbetrachtung:</strong> Jede unabhängige Quelle wird nacheinander einzeln betrachtet.</li>
+        <li><strong>Alle anderen Quellen werden durch ihren Ersatz ersetzt:</strong> Spannungsquellen durch einen Kurzschluss, Stromquellen durch eine Unterbrechung (offene Klemme).</li>
+        <li><strong>Berechnung der Wirkung:</strong> Für jede Quelle wird die Schaltung einzeln analysiert.</li>
+        <li><strong>Superposition:</strong> Die Einzelergebnisse werden unter Beachtung von Vorzeichen und Polarität addiert.</li>
+      </ul>
+
+      <div class="formula">U<sub>gesamt</sub> = U₁ + U₂</div>
+
+      <h3>Beispielrechnung</h3>
+      <ul>
+        <li><strong>Schritt 1:</strong> Nur Quelle 1 ist aktiv, Quelle 2 wird durch ihren Ersatz ersetzt. Die Wirkung von U₁ wird berechnet.</li>
+        <li><strong>Schritt 2:</strong> Nur Quelle 2 ist aktiv, Quelle 1 wird durch ihren Ersatz ersetzt. Die Wirkung von U₂ wird berechnet.</li>
+        <li><strong>Schritt 3:</strong> Die Einzelwirkungen werden zur Gesamtwirkung überlagert (addiert).</li>
+      </ul>
+
+      <h3>Belastung und Einfluss weiterer Bauteile</h3>
+      <p>Durch das Zuschalten zusätzlicher Lasten verändern sich die Teilergebnisse. Auch in diesem Fall lässt sich das Verhalten mit dem Überlagerungsprinzip schrittweise nachvollziehen.</p>
+
+      <!-- RECHNER -->
+      <div class="calc">
+        <h3>Rechner: Superposition zweier Spannungen</h3>
+        <div class="calc-grid">
+          <div class="field"><label for="ue_u1">U₁ (V)</label><input id="ue_u1" type="number" value="12" step="any"></div>
+          <div class="field"><label for="ue_u2">U₂ (V)</label><input id="ue_u2" type="number" value="5" step="any"></div>
+        </div>
+        <button class="btn btn--primary" id="calcUe" type="button">Berechnen</button>
+        <div class="results">
+          <div class="result"><div class="k">U<sub>gesamt</sub> = U₁ + U₂</div><div class="v" id="ue_total">–</div></div>
+        </div>
+      </div>
+
+      <h2>Schaltungsmodul: Verwendung der Übungsschaltung</h2>
+      <p>Über Schalter lassen sich die einzelnen Quellen aktivieren bzw. deaktivieren. An den Messpunkten werden die Teilspannungen und die überlagerte Gesamtspannung gemessen.</p>
+
+      <h3>Übungen</h3>
+      <ol>
+        <li><strong>Einzelquellen aktivieren:</strong> Jeweils nur eine Quelle einschalten und die Wirkung messen.</li>
+        <li><strong>Gesamteffekt berechnen:</strong> Die gemessenen Einzelwirkungen addieren und mit der Messung bei beiden aktiven Quellen vergleichen.</li>
+        <li><strong>Variationen durch Lasten:</strong> Zusätzliche Lasten zuschalten und den Einfluss auf das Ergebnis untersuchen.</li>
+      </ol>
+
+      <h3>Bauteilwerte (Beispielwerte)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Bauteil</th><th>Wert</th></tr></thead>
+          <tbody>
+            <tr><td>Spannungsquelle 1</td><td>12 V</td></tr>
+            <tr><td>Spannungsquelle 2</td><td>5 V</td></tr>
+            <tr><td>Widerstände</td><td>470 Ω – 10,47 kΩ (einstellbar)</td></tr>
+            <tr><td>Zusätzliche Lasten</td><td>470 Ω (Beispiel)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:2rem"><a class="btn btn--ghost" href="index.html">← Zurück zur Übersicht</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="Bilder/EDUcircuit_4c_V2.svg" alt="EDU circuit Logo">
+          <p>Interaktive Lernmodule für elektronische Schaltungen – Theorie praktisch erkunden und verstehen.</p>
+        </div>
+        <div>
+          <h4>Über EDU circuit</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Übersicht</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Schaltungen</h4>
+          <ul class="footer-links">
+            <li><a href="Spannungsteiler.html">Spannungsteiler</a></li>
+            <li><a href="Stromteiler.html">Stromteiler</a></li>
+            <li><a href="Ueberlagerungsprinzip.html">Überlagerungsprinzip</a></li>
+            <li><a href="Versorgung.html">Versorgung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:office@edu-circuit.at">office@edu-circuit.at</a></li>
+            <li><a href="tel:+4368120387977">+43 681 2038 7977</a></li>
+            <li><a href="https://www.instagram.com/edu_circuit.at" target="_blank" rel="noopener">📸 Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2025</span> EDUcircuit. Alle Rechte vorbehalten.</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

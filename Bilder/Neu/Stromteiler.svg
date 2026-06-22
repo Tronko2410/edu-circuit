@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Stromteiler Schaltung">
+  <style>
+    .w{fill:none;stroke:#1565c0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .n{fill:#0d47a1}
+    .t{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;fill:#0d2a4a;font-weight:600}
+  </style>
+  <!-- source -->
+  <circle class="w" cx="70" cy="150" r="26" fill="#e3f0fd"/>
+  <path class="w" d="M70 138 V162 M58 150 H82"/>
+  <text class="t" x="40" y="118">I<tspan baseline-shift="sub" font-size="11">q</tspan></text>
+  <!-- top and bottom rails -->
+  <path class="w" d="M70 124 V70 H330 V230 H70 V176"/>
+  <!-- parallel branches -->
+  <path class="w" d="M200 70 V230 M300 70 V230"/>
+  <!-- R1 -->
+  <rect class="w" x="189" y="120" width="22" height="44" rx="3" fill="#e3f0fd"/>
+  <text class="t" x="156" y="148">R<tspan baseline-shift="sub" font-size="11">1</tspan></text>
+  <!-- R2 -->
+  <rect class="w" x="289" y="120" width="22" height="44" rx="3" fill="#e3f0fd"/>
+  <text class="t" x="320" y="148">R<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <!-- branch current arrows -->
+  <path class="w" d="M200 88 v14" marker-end="url(#a)"/>
+  <path class="w" d="M300 88 v14" marker-end="url(#a)"/>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="4" refY="7" orient="auto"><path d="M0 0 L4 7 L8 0" fill="none" stroke="#1565c0" stroke-width="2"/></marker></defs>
+  <text class="t" x="170" y="100">I<tspan baseline-shift="sub" font-size="11">1</tspan></text>
+  <text class="t" x="310" y="100">I<tspan baseline-shift="sub" font-size="11">2</tspan></text>
+  <text class="t" x="150" y="34" font-size="17" font-weight="700">Stromteiler</text>
+</svg>
